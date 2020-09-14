@@ -1,0 +1,73 @@
+
+Showing logs for build [32mm-ayman-docker-golang-hello-wor-85tlz-3[0m stage [32mfrom-build-pack[0m and container [32mcredential-initializer[0m
+{"level":"info","ts":1600097135.7114048,"caller":"creds-init/main.go:44","msg":"Credentials initialized."}
+
+Showing logs for build [32mm-ayman-docker-golang-hello-wor-85tlz-3[0m stage [32mfrom-build-pack[0m and container [32mworking-dir-initializer[0m
+
+Showing logs for build [32mm-ayman-docker-golang-hello-wor-85tlz-3[0m stage [32mfrom-build-pack[0m and container [32mplace-tools[0m
+
+Showing logs for build [32mm-ayman-docker-golang-hello-wor-85tlz-3[0m stage [32mfrom-build-pack[0m and container [32mstep-git-source-m-ayman-docker-golang-hello-wor-85tlz-mhpzr[0m
+{"level":"info","ts":1600097149.6554954,"caller":"git/git.go:105","msg":"Successfully cloned https://github.com/*******/docker-golang-hello-world.git @ v0.0.1 in path /workspace/source"}
+{"level":"warn","ts":1600097149.6555867,"caller":"git/git.go:152","msg":"Unexpected error: creating symlink: symlink /tekton/home/.ssh /root/.ssh: file exists"}
+{"level":"info","ts":1600097149.8416398,"caller":"git/git.go:133","msg":"Successfully initialized and updated submodules in path /workspace/source"}
+
+Showing logs for build [32mm-ayman-docker-golang-hello-wor-85tlz-3[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-builder-home[0m
+
+Showing logs for build [32mm-ayman-docker-golang-hello-wor-85tlz-3[0m stage [32mfrom-build-pack[0m and container [32mstep-git-merge[0m
+Using SHAs from PULL_REFS=master:
+WARNING: no SHAs to merge, falling back to initial cloned commit
+
+Showing logs for build [32mm-ayman-docker-golang-hello-wor-85tlz-3[0m stage [32mfrom-build-pack[0m and container [32mstep-setup-jx-git-credentials[0m
+Generated Git credentials file /workspace/xdg_config/git/credentials
+
+Showing logs for build [32mm-ayman-docker-golang-hello-wor-85tlz-3[0m stage [32mfrom-build-pack[0m and container [32mstep-build-make-build[0m
+go get github.com/gorilla/mux
+CGO_ENABLED=0 GOOS=linux go build -ldflags "-s" -a -installsuffix cgo -o hello-world
+docker build -t qorbani/golang-hello-world -t qorbani/golang-hello-world:v1.0 .
+Sending build context to Docker daemon  5.681MB
+Step 1/4 : FROM scratch
+ ---> 
+Step 2/4 : WORKDIR /app
+ ---> Running in e3eb0479c68a
+Removing intermediate container e3eb0479c68a
+ ---> e45aab11f80b
+Step 3/4 : ADD ./hello-world /app/hello-world
+ ---> 45915c75b88f
+Step 4/4 : CMD [ "/app/hello-world" ]
+ ---> Running in 782b2e0bea08
+Removing intermediate container 782b2e0bea08
+ ---> d1a511d6dc8e
+Successfully built d1a511d6dc8e
+Successfully tagged qorbani/golang-hello-world:latest
+Successfully tagged qorbani/golang-hello-world:v1.0
+
+Showing logs for build [32mm-ayman-docker-golang-hello-wor-85tlz-3[0m stage [32mfrom-build-pack[0m and container [32mstep-build-container-build[0m
+E0914 15:26:58.155032      11 aws_credentials.go:77] while getting AWS credentials NoCredentialProviders: no valid providers in chain. Deprecated.
+	For verbose messaging see aws.Config.CredentialsChainVerboseErrors
+[36mINFO[0m[0001] Using dockerignore file: /workspace/source/.dockerignore 
+[36mINFO[0m[0001] No base image, nothing to extract            
+[36mINFO[0m[0001] Built cross stage deps: map[]                
+[36mINFO[0m[0001] No base image, nothing to extract            
+[36mINFO[0m[0001] Executing 0 build triggers                   
+[36mINFO[0m[0001] Using files from context: [/workspace/source/hello-world] 
+[36mINFO[0m[0001] Unpacking rootfs as cmd ADD ./hello-world /app/hello-world requires it. 
+[36mINFO[0m[0001] WORKDIR /app                                 
+[36mINFO[0m[0001] cmd: workdir                                 
+[36mINFO[0m[0001] Changed working directory to /app            
+[36mINFO[0m[0001] Creating directory /app                      
+[36mINFO[0m[0001] Resolving 1 paths                            
+[36mINFO[0m[0001] Taking snapshot of files...                  
+[36mINFO[0m[0001] Using files from context: [/workspace/source/hello-world] 
+[36mINFO[0m[0001] ADD ./hello-world /app/hello-world           
+[36mINFO[0m[0001] Resolving 1 paths                            
+[36mINFO[0m[0001] Taking snapshot of files...                  
+[36mINFO[0m[0001] CMD [ "/app/hello-world" ]                   
+[36mINFO[0m[0001] No files changed in this command, skipping snapshotting. 
+
+Showing logs for build [32mm-ayman-docker-golang-hello-wor-85tlz-3[0m stage [32mfrom-build-pack[0m and container [32mstep-build-post-build[0m
+no CVE provider running in the current ** namespace so skip adding image to be analysed
+
+Showing logs for build [32mm-ayman-docker-golang-hello-wor-85tlz-3[0m stage [32mfrom-build-pack[0m and container [32mstep-promote-changelog[0m
+/bin/sh: line 0: cd: /workspace/source/charts/docker-golang-hello-world: No such file or directory
+[31m
+Pipeline failed on stage 'from-build-pack' : container 'step-promote-changelog'. The execution of the pipeline has stopped.[0m
